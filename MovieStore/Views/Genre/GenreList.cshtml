@@ -1,0 +1,33 @@
+﻿@model IEnumerable<MovieStore.Models.DataDB.Genre>
+@{
+}
+
+<div class="tbl-container">
+    <h2>Genres List</h2>
+
+    <table>
+        <tr class="genrelistTable1">
+            <th>Genre Name</th>
+            <th>Update</th>
+            <th>Delete</th>
+            
+        </tr>
+        @foreach (var item in Model)
+        {
+
+            <tr class="genrelistTable2">
+                <td>@item.GenreName</td>
+                <td class="GenreEditicon">
+                    <a href="/Genre/Edit?id=@item.Id" class="btn btn-default"><i class="fa fa-edit"></i></a>
+                </td>
+                <td class="GenreDeleteicon">
+                    <a onclick="return window.confirm('Are you sure?')" href="/Genre/Delete?id=@item.Id" class="btn btn-danger"><i class="fa fa-trash"></i></a>
+                </td>
+            </tr>
+        }
+
+    </table>
+    <div class="input-container">
+        <a href="/Genre/Add" class="btn btn-sec">Back</a>
+    </div>
+</div>
